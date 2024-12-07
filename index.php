@@ -177,8 +177,8 @@ function html_footer()
 {
     ?>
     <footer>
-        <a href="https://https://github.com/splitbrain/ots">Webinterface</a> for
-        <a href="https://github.com/neopunisher/Open-Text-Summarizer">Open Text Summarizer</a>
+        <a href="https://github.com/splitbrain/ots" target="_blank">Webinterface</a> for
+        <a href="https://github.com/neopunisher/Open-Text-Summarizer" target="_blank">Open Text Summarizer</a>
     </footer>
     </div>
     </body>
