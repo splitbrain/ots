@@ -24,8 +24,11 @@ if (!isset($_REQUEST['format']) || $_REQUEST['format'] = !'text') {
 
 function loadurl()
 {
-    if (empty($_REQUEST['url'])) return;
-    $text = file_get_contents($_REQUEST['url']);
+    $url = trim($_REQUEST['url'] ?? '');
+    $url = filter_var($url, FILTER_VALIDATE_URL);
+    if (empty($url)) return;
+
+    $text = file_get_contents($url);
     if (preg_match('#(<body[^>]*>)(.*)(</body>)#si', $text, $match)) {
         $text = $match[2];
     }
