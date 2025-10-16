@@ -1,10 +1,10 @@
-FROM debian AS build
+FROM debian:latest AS build
 RUN apt-get update && apt-get install -y build-essential git libglib2.0-dev libxml2-dev libpopt-dev
 RUN git clone https://github.com/neopunisher/Open-Text-Summarizer.git ots
 WORKDIR /ots
 RUN ./configure --prefix=/opt
 RUN touch gtk-doc.make # workaround for missing gtk-doc.make
-RUN make
+RUN make CFLAGS="-Wno-implicit-function-declaration" LDFLAGS="-lm"
 RUN make install
 RUN ls -lR /opt
 
